@@ -1,0 +1,9 @@
+---
+  - name: configure haproxy
+    copy:
+      content: "{{ config | b64decode }}"
+      dest: /etc/haproxy/haproxy.cfg
+  - name: restart haproxy
+    service:
+      name: haproxy
+      state: restarted

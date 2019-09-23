@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+  - name: install haproxy
+    include: tasks/install_haproxy.yaml
+  - name: configure haproxy
+    include: tasks/configure_haproxy.yaml
+    vars:
+      - config: "{{ haproxy_cfg }}"
